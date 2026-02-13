@@ -1,6 +1,6 @@
 # Shirt Store Backend
 
-Simple REST API for an e-commerce-like store that exposes product catalog endpoints, user registration/login, cart and checkout flow with Stripe integration, and order management backed by a PostgreSQL database via Prisma.
+Demo REST API for a store backend, built with Express, TypeScript, Prisma, and PostgreSQL. It exposes catalog endpoints (banners, products, categories), user registration/login, address management, and a cart + checkout flow with Stripe. The project is structured around controllers/services and Zod validation, so it’s easy to extend the domain and swap parts of the flow as the app grows.
 
 ---
 
