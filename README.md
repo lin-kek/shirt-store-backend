@@ -1,12 +1,10 @@
-## 1. Title
-
-**Store Backend API**
+# Shirt Store Backend
 
 Simple REST API for an e-commerce-like store that exposes product catalog endpoints, user registration/login, cart and checkout flow with Stripe integration, and order management backed by a PostgreSQL database via Prisma.
 
 ---
 
-## 2. Overview
+## 1. Overview
 
 - **Public catalog**: list banners, products, single product details, related products, and basic category metadata.
 - **User accounts**: registration and login with hashed passwords and token-based authentication.
@@ -17,7 +15,7 @@ Simple REST API for an e-commerce-like store that exposes product catalog endpoi
 
 ---
 
-## 3. Tech Stack
+## 2. Tech Stack
 
 - **Framework**: Express 5
 - **ORM**: Prisma with PostgreSQL
@@ -27,7 +25,7 @@ Simple REST API for an e-commerce-like store that exposes product catalog endpoi
 
 ---
 
-## 4. Project Structure
+## 3. Project Structure
 
 - **`src/server.ts`**: Express app initialization, CORS, static `public` directory, body parsers (JSON, raw for Stripe), global error handler, and server start.
 - **`src/routes/main.ts`**: Central router that wires all HTTP routes to controllers. Applies `authMiddleware` on protected routes.
@@ -59,7 +57,7 @@ Simple REST API for an e-commerce-like store that exposes product catalog endpoi
 
 ---
 
-## 5. Running Locally
+## 4. Running Locally
 
 ### Prerequisites
 
@@ -118,7 +116,7 @@ By default, the server listens on `PORT` from the environment or `4000` if not s
 
 ---
 
-## 6. Environment Variables
+## 5. Environment Variables
 
 | Variable                | Description                                                                          |
 | ----------------------- | ------------------------------------------------------------------------------------ |
@@ -131,7 +129,7 @@ By default, the server listens on `PORT` from the environment or `4000` if not s
 
 ---
 
-## 7. Core Domain Models
+## 6. Core Domain Models
 
 Based on `prisma/schema.prisma`:
 
@@ -153,7 +151,7 @@ Based on `prisma/schema.prisma`:
 
 ---
 
-## 8. API Endpoints
+## 7. API Endpoints
 
 ### Authentication and headers
 
@@ -337,7 +335,7 @@ curl -X POST http://localhost:4000/cart/finish \
 
 ---
 
-## 9. Response Patterns and Error Handling
+## 8. Response Patterns and Error Handling
 
 - **General structure**:
   - Successful responses typically follow the pattern: `{ error: null, ...data }`.
@@ -347,7 +345,7 @@ curl -X POST http://localhost:4000/cart/finish \
 
 ---
 
-## 10. Limitations and Future Improvements
+## 9. Limitations and Future Improvements
 
 - **Error details**: Providing more specific error messages to the user can help them fix incorrect data.
 - **Authentication model**: Uses a persistent UUID token without expiration or refresh mechanisms. adding token expiry, revocation, and logout endpoints would strengthen security.
