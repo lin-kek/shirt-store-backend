@@ -1,0 +1,31 @@
+import { NextFunction, Request, Response } from "express";
+import { getUserIdByToken } from "../services/user";
+
+export async function authMiddleware(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  const authHeader = req.headers["authorization"];
+  if (!authHeader) {
+    res.status(401).json({ error: "Access denied" });
+    return;
+  }
+
+  const tokenSplit = authHeader.split("Bearer ");
+  if (!tokenSplit[1]) {
+    res.status(401).json({ error: "Access denied" });
+    return;
+  }
+
+  const token = tokenSplit[1];
+
+  const userId = await getUserIdByToken(token);
+  if (!userId) {
+    res.status(401).json({ error: "Access denied" });
+    return;
+  }
+
+  (req as any).userId = userId;
+  next();
+}
