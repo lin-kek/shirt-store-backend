@@ -87,6 +87,14 @@ You will need:
 - A valid `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`.
 - A `FRONTEND_URL` that matches the frontend you are using for redirects.
 
+### Prisma setup
+
+From the project root:
+```bash
+npx prisma migrate dev
+npx prisma generate
+```
+
 ### Database setup
 
 - **Prisma schema** is defined in `prisma/schema.prisma`.
