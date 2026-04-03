@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
-    "db:seed": "prisma db seed"
+    "start": "tsx --env-file=.env src/server.ts",
+    "db:seed": "prisma db seed",
+    "db:generate": "prisma generate"
   },
   "keywords": [],
   "author": "",
